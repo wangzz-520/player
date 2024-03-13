@@ -1,0 +1,64 @@
+QMenu,QMenuBar,QMenu:disabled,QMenuBar:disabled
+{
+    color:#DCDCDC;
+    background-color:#484848;
+    border:1px solid #242424;
+    margin:0px;
+}
+
+QMenu::item
+{
+    padding:3px 20px;
+}
+
+QMenu::indicator
+{
+    width:13px;
+    height:13px;
+}
+
+QMenu::item:selected,QMenuBar::item:selected
+{
+    color:#DCDCDC;
+    border:0px solid #242424;
+    background:#646464;
+}
+
+QMenu::separator
+{
+    height:1px;
+    background:#242424;
+}
+
+/**********提示**********/
+QToolTip{
+    border: none;
+    background-color: #2e2f37;
+    color:white;
+}
+
+QPushButton#btnMin
+{
+	border-image:url(":/image/image/min.png");
+}
+QPushButton#btnMax
+{
+	border-image:url(":/image/image/max.png");
+}
+QPushButton#btnClose
+{
+	border-image:url(":/image/image/close.png");
+}
+QLabel#lbLogo
+{
+	border-image:url(":/image/image/player.png");
+}
+QLabel#lbText
+{
+	color:#303030;
+	font: 14px;
+}
+QWidget#widget
+{
+	background-color:#505050;
+}
