@@ -22,6 +22,9 @@ WOpenGLWidget::WOpenGLWidget(QWidget* parent)
 	, m_impl(new OpenGLDisplayImpl)
 	, EBO(QOpenGLBuffer::IndexBuffer)
 {
+	connect(this, &WOpenGLWidget::sigUpdate, this, [=] {
+		this->update();
+	});
 }
 
 WOpenGLWidget::~WOpenGLWidget()
@@ -86,7 +89,8 @@ void WOpenGLWidget::slotReceiveVideoData(uint8_t* yuvBuffer)
 	memcpy(m_impl->buffer[2], yuvBuffer + 5 * m_impl->videoW * m_impl->videoH / 4,
 		m_impl->videoW * m_impl->videoH / 4);
 
-	update();
+	emit sigUpdate();
+	//update();
     m_mux.unlock();
 }
 
@@ -164,11 +168,11 @@ void WOpenGLWidget::initializeGL()
 	m_mux.unlock();
 
 	// 启动定时器
-    QTimer *ti = new QTimer(this);
-    connect(ti, &QTimer::timeout, this, [=] {
-        update();
-    });
-    ti->start(100);
+  /*  QTimer *ti = new QTimer(this);
+	connect(ti, &QTimer::timeout, this, [=] {
+		update();
+	});
+	ti->start(100);*/
 }
 
 void WOpenGLWidget::paintGL()

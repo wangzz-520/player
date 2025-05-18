@@ -42,6 +42,9 @@ class WOpenGLWidget : public QOpenGLWidget,public QOpenGLFunctions
 public:
     WOpenGLWidget(QWidget* parent = Q_NULLPTR);
 	~WOpenGLWidget();
+	
+signals:
+	void sigUpdate();
 
 public:
 	void slotOpenVideo(int width,int height);
